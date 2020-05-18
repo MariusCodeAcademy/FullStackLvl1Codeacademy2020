@@ -135,12 +135,16 @@ section {
 }
 
 /* section form */
-
+.form {
+    display: flex;
+}
+.contacts-block {
+    width: 30%;
+}
 .one-field {
     /* nuo sito el pozicijos skaiciuosis viduje esanciu position absolute el koordinates */
     position: relative;
     /* border: 1px dashed #000; */
-    width: 30%;
     margin-bottom: 30px;
 }
 .one-field .fa {
@@ -161,6 +165,18 @@ section {
 .one-field .row-top {
     color: #222222;
     font-size: 16px;
+}
+
+/* FORM  */
+.contacts-form {
+    display: flex;
+    flex-wrap: wrap;
+}
+.contacts-form .left-form {
+    width: 50%;
+}
+.contacts-form .right-form {
+    width: 50%;
 }
 
 
