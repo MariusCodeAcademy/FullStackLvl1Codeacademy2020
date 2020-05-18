@@ -139,7 +139,9 @@ section {
 .one-field {
     /* nuo sito el pozicijos skaiciuosis viduje esanciu position absolute el koordinates */
     position: relative;
-    border: 1px dashed #000;
+    /* border: 1px dashed #000; */
+    width: 30%;
+    margin-bottom: 30px;
 }
 .one-field .fa {
     position: absolute;
@@ -148,7 +150,18 @@ section {
     transform: translateY(-50%);
     left: 10px;
     font-size: 35px;
-
 }
+
+.one-field p {
+    /* patraukiam nuo kaires puses kad nepersidengtu su icon */
+    padding-left: 60px;
+    margin: 0;
+    font-size: 14px;
+}
+.one-field .row-top {
+    color: #222222;
+    font-size: 16px;
+}
+
 
 
