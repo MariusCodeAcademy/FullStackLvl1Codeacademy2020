@@ -1,0 +1,242 @@
+/* Reset and globals */
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    /* custom google font */
+    font-family: 'Poppins', sans-serif;
+}
+p {
+    color: #777777;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.flex {
+    display: flex;
+}
+.flex-wrap {
+    flex-wrap: wrap;
+}
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+}
+/* Common */
+.btn-blue {
+    border: none;
+    background-image: linear-gradient(90deg, #8490ff 0%, #62bdfc 100%);
+    padding: 10px 20px;
+    color: white;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+section {
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+
+/* header */
+
+.main-nav {
+    display: flex;
+    align-items: center;
+}
+.brand span {
+    font-weight: 400;
+}
+.nav-link {
+    text-transform: uppercase;
+    padding: 5px 8px;
+    font-size: 12px;
+}
+
+/* Hero area ===================================== */
+.hero {
+    align-items: center;
+}
+.hero--after {
+    flex-direction: row-reverse;
+}
+.hero__subheding {
+    letter-spacing: 5px;
+}
+.hero__title {
+    font-size: 60px;
+    font-weight: normal;
+    margin: 15px 0;
+}
+.hero__text {
+    color: rgb(27, 27, 27);
+}
+
+
+/* Services area ===================================== */
+.services__main-title {
+    text-align: center;
+    font-weight: 600;
+    font-size: 36px;
+    margin-bottom: 0;
+}
+.services__under-title {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 4%;
+}
+.service {
+    text-align: center;
+    flex-basis: 30%;
+}
+.service .fa {
+    font-size: 40px;
+}
+.service__title {
+    font-weight: 600;
+    font-size: 20px;
+}
+.services-container {
+    justify-content: space-between;
+}
+
+/* Contacts.html ===================================== */
+/* ============== ===================================== */
+
+/* contacs hero */
+.contacts-hero {
+    background-image: linear-gradient(90deg, #8490ff 0%, #62bdfc 100%);
+    color: #fff;
+    text-align: center;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+.contacts-hero .symbol {
+    font-size: 20px;
+}
+.contacts-hero .title-main {
+    font-size: 48px;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* map */
+.map-container {
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+/* section form ================================== */
+.form {
+    display: flex;
+}
+.contacts-block {
+    width: 40%;
+    margin-right: 30px;
+}
+.one-field {
+    /* nuo sito el pozicijos skaiciuosis viduje esanciu position absolute el koordinates */
+    position: relative;
+    /* border: 1px dashed #000; */
+    margin-bottom: 30px;
+}
+.one-field .fa {
+    position: absolute;
+    /* vertikaliai per viduri */
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10px;
+    font-size: 35px;
+}
+
+.one-field p {
+    /* patraukiam nuo kaires puses kad nepersidengtu su icon */
+    padding-left: 60px;
+    margin: 0;
+    font-size: 14px;
+}
+.one-field .row-top {
+    color: #222222;
+    font-size: 16px;
+}
+
+/* FORM ==================================  */
+.contacts-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+.contacts-form .left-form {
+    width: calc(50% - 30px);
+    margin-right: 30px;
+}
+/* visi 3 input el left formoje */
+.contacts-form .left-form input {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 15px;
+    box-shadow: none;
+}
+/* nuimam bargin bottom nuo paskutinio input el */
+.contacts-form .left-form input:last-child {
+    margin-bottom: 0;
+}
+
+.contacts-form .right-form {
+    width: 50%;
+    padding: 15px;
+}
+
+.btn-outline {
+    background-color: #8490ff;
+    color: #fff;
+    padding: 8px 30px;
+    text-transform: uppercase;
+    box-shadow: none;
+    border: 1px solid #8490ff;
+    margin-top: 40px;
+    transition: all 0.3s ease-out;
+}
+.btn-outline:hover {
+    background-color: #fff;
+    color: #8490ff;
+}
+
+
+
+
+/* Medias Responsive =================================================== */
+
+/* nustatyti kad ekrano dydyje nuo 0 iki 1024px .hero flex-direction  taisykle butu column */
+
+@media screen and (max-width: 1024px){
+    .hero {
+        flex-direction: column;
+        background-color: magenta;
+    }
+    .form {
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .contacts-form {
+        flex-direction: column;
+        align-items: center;
+        
+    }
+    .contacts-form .left-form input:last-child {
+        margin-bottom: 20px;
+    }
+    
+}
+
+
