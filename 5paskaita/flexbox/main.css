@@ -1,0 +1,85 @@
+body {
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* START */
+header {
+    height: 60px;
+    background-color: tomato;
+}
+
+.main {
+    height: 600px;
+    background-color: greenyellow
+}
+
+.article {
+    height: 250px;
+    background-color: darkkhaki;
+}
+.article.article--two {
+    background-color: rgb(46, 46, 110);
+}
+
+/* END */
+
+/* Display inline block */
+/* leidziam keliems elementams buti vienoje eileje  */
+/* section, aside {
+    display: inline-block;
+}
+section {
+    width: 64%;
+    vertical-align: top;
+}
+.aside-container {
+    width: 34%;
+} */
+
+
+/* flex */
+.flex-container {
+    border: 1px dashed magenta;
+    padding: 15px;
+    height: 600px;
+    /* ijungiam flex */
+    display: flex;
+    flex-wrap: wrap;
+    /* isdeliojam elementus lygiais tarpais x asimi */
+    justify-content: space-evenly;
+    /* padedame elementus centre y asyje */
+    align-items: center;
+}
+.flex-container .box {
+    /* width: 100px; */
+    height: 100px;
+    border: 1px solid black;
+    margin: 15px;
+}
+
+/* floats */
+.floats {
+    border: 1px dashed violet;
+}
+.floats .box {
+    width: 150px;
+    height: 150px;
+    border: 1px solid #000;
+    float: left;
+}
+
+
+/* footer */
+footer {
+    height: 50px;
+    background-color: tomato;
+}
+
+.clearfix {
+    clear: both;
+}
+
+
+
+
