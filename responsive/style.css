@@ -1,0 +1,39 @@
+* {
+    box-sizing: border-box;
+}
+
+header, footer {
+    font-size: 20px;
+    color: white;
+    background-color: rgb(24, 7, 7);
+    padding: 30px;
+}
+
+.article {
+    background-color: tomato;
+    border: 1px solid #000;
+    padding: 15px;
+    margin: 15px;
+}
+
+@media screen and (min-width: 768px) {
+    /* sitos taisykles galios rezoliucijoms nuo 768 i virsu */
+    /* section turi tilpti 2 per eilute */
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .article {
+        flex-basis: 46%;
+    }
+
+}
+@media screen and (min-width: 1200px){
+    /* sitos taisykles galios rezoliucijoms nuo 1200 i virsu */
+    /* section turi tilpti 4 per eilute */
+    .article {
+        flex-basis: 22%;
+    }
+}
+
+
