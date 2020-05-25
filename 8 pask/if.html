@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>If</title>
+  </head>
+  <body>
+    <h1>if</h1>
+
+    <script>
+      console.log("IF");
+
+      var x = 6;
+
+      // salyga. Jei skliausteliuose gausime true tai
+      if (x == 5) {
+        // bus vygdoma viskas kas yra tar garbanotu skliausteliu
+        console.log("X yra lygu 5");
+      }
+
+      // if else
+      // var age = 18;
+      // // salyga
+      // if (age >= 18) {
+      //     // vykdoma jei salyga TRUE
+      //     console.log("Jus esate suauges");
+      // } else {
+      //     // vykdoma jei salyga yra FALSE
+      //     console.log("Jus esate vaikas");
+      // }
+
+      // else if
+      var age = 18;
+
+      if (age < 18) {
+        console.log("Jus esate vaikas");
+      } else if (age < 65) {
+        console.log("Jus esate suauges");
+      } else {
+        console.log("Jus esate Vyresnio amziaus");
+      }
+
+      // terenary operator
+
+      var oras = "nelyja";
+
+      //  jei oras == 'lyja' atspausdinsim blogas oras, kitu atveju geras
+      // salyga         ? true reiksme               :      false reiksme
+      oras === "lyja" ? console.log("Blogas oras") : console.log("Oras geras");
+
+
+      // prasome ivesti is kliento
+      // prompt("iveskite skaiciu 0 iki 10");
+
+      // patikrinti koks skaicius ivestas
+      //susikuriam kintamaji el skaiciui
+      var skaicius;
+      
+      // gauname ivedima ir prilyginame kintamajam
+      skaicius = prompt("iveskite skaiciu 0 iki 10");
+
+      skaiciusPaverstasNumberTipu = Number(skaicius);
+
+      console.log(typeof skaiciusPaverstasNumberTipu);
+      
+      // jei skaiciu ivestas neatitinka salygos mes pranesam su alert() "blogai ivedete skaiciu"
+
+      // 1 salyga: sk turi buti didesnis uz 0 // 2 salyga sk turi buti mazesnis uz 10 
+      if (skaiciusPaverstasNumberTipu >= 0 && skaiciusPaverstasNumberTipu <= 10) {
+        console.log("ivesta teisingai")
+      } else {
+          alert("blogai ivedete skaiciu");
+      }
+
+      
+
+
+    </script>
+  </body>
+</html>
