@@ -15,7 +15,9 @@ console.log(naujasMasyvasIsString);
 
 let sakinys = "Because of this, the sort() method will produce incorrect result when sorting numbers."
 
-// atspausdinti sakini is kitos puses. 
+// atspausdinti sakini is kitos puses.
+
+
 
 
 
