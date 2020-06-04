@@ -11,3 +11,49 @@ antraste.innerText = "<h5>title was Changed </h5>";
 antraste.innerHTML = "<h5>title was Changed </h5>";
 
 antraste.style.backgroundColor = "yellow";
+
+
+
+
+
+// sukurti nauja h3 elementa ir ikelti ji i documenta
+
+// sukuriam tuscia elementa
+const newTitle = document.createElement("h3");
+// pridedam texta i elementa;
+newTitle.innerText = "New generated Title";
+
+//ikelti elementa i .container div elementa;
+// gauname .container el
+const konteineris = document.querySelector(".container");
+// ikeliam naujai sukurta el i dom
+konteineris.appendChild(newTitle);
+
+
+
+
+let count = 0;
+//  kuriame funkcija prideti li el 
+function addLi() {
+    // console.log("it works");
+
+    // gauti reiksme is input el
+    let inputVal = document.getElementById("input").value
+    console.log(inputVal);
+    
+    // suskurti el
+    let liEl = document.createElement("li");
+    // prideti text noda
+    liEl.innerText = inputVal + " " + count;
+    // ikelti ta el i ul
+    document.getElementById('ul').appendChild(liEl);
+    // padidinti count
+    count++;
+
+    // isvalyti input el
+    document.getElementById("input").value = "";
+}
+
+
+
+
