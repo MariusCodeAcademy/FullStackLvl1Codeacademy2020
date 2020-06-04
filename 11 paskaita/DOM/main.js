@@ -56,4 +56,31 @@ function addLi() {
 
 
 
+// texto isvedimo funkcija
+
+function textOut() {
+    // console.log('it works');
+    // gauti ivesta texta ir ji atvaizduoti resultBox elemente
+    let inputVal = document.getElementById("input").value;
+    document.getElementById("resultBox").innerText = inputVal;
+
+    // atspausdinti kiek simboliu ivesta
+    let ilgis = inputVal.length;
+    console.log(ilgis);
+
+    // atspausdinti "per trumpas" jei texta yra trumpesnis uz 6
+    if(ilgis < 6) {
+        document.getElementById("resultBox").innerText = "per trumpas slaptazodis"
+    } else {
+        document.getElementById("resultBox").innerText = "Viskas ok"
+    }
+
+    
+}
+
+
+
+
+
+
 
