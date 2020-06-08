@@ -15,17 +15,44 @@
         <div class="logo">
             <h1>MobileToggle</h1>
         </div>
-        <nav class="main-nav">
+        <nav id="main-nav" class="main-nav">
             <a href="#">Home</a>
             <a href="#">About</a>
             <a href="#">Contact</a>
         </nav>
-        <div class="mobile-toggle">
+        <div id="mobileBtn" class="mobile-toggle">
             <div class="mobile-toggle__bar"></div>
             <div class="mobile-toggle__bar"></div>
             <div class="mobile-toggle__bar"></div>
         </div>
     </header>
+
+
+
+
+    <script>
+        // nusitaikyti i mygtuka 
+        const mobileBtn = document.getElementById("mobileBtn");
+
+        // pridedame event listener
+        mobileBtn.addEventListener("click", toggleMobile);
+        // funkcija kuri bus vykdoma po paspaudimo
+        function toggleMobile() {
+            console.log("paspaudei");
+            /// function body 
+            // nusitaikyti i el kuriam atliksim veiksma
+            const navEl = document.getElementById("main-nav");
+
+            // rankinis patikrinimas jei klase yra ja nuimti jei nera - prideti 
+            if (navEl.classList.contains('mobile-on')) {
+                navEl.classList.remove("mobile-on")
+            } else {
+                navEl.classList.add('mobile-on');
+            }
+
+        }
+    </script>
+
 
 </body>
 
