@@ -44,11 +44,16 @@
             const navEl = document.getElementById("main-nav");
 
             // rankinis patikrinimas jei klase yra ja nuimti jei nera - prideti 
-            if (navEl.classList.contains('mobile-on')) {
-                navEl.classList.remove("mobile-on")
-            } else {
-                navEl.classList.add('mobile-on');
-            }
+            // if (navEl.classList.contains('mobile-on')) {
+            //     navEl.classList.remove("mobile-on")
+            // } else {
+            //     navEl.classList.add('mobile-on');
+            // }
+            // navEl.classList.contains('mobile-on') ? navEl.classList.remove("mobile-on") : navEl.classList.add('mobile-on');
+
+            // ijungti arba isjungti klase nacEl el.
+            navEl.classList.toggle("mobile-on");
+
 
         }
     </script>
