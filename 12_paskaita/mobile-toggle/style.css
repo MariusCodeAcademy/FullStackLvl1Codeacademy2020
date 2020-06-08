@@ -1,0 +1,41 @@
+header {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: darkcyan;
+    padding: 0 30px;
+}
+
+a {
+    text-decoration: none;
+    font-size: 20px;
+    padding: 8px 14px;
+    color: #fff;
+}
+
+.mobile-toggle {
+    display: none;
+    height: 14px;
+    width: 18px;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.mobile-toggle__bar {
+    height: 2px;
+    background-color: #fff;
+}
+
+
+/* nuo 0 iki 500 navigacija mobili */
+
+@media screen and (max-width: 500px) {
+    .main-nav {
+        display: none;
+    }
+    .mobile-toggle {
+        display: flex;
+    }
+}
