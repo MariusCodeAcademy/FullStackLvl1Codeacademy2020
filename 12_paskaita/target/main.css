@@ -1,0 +1,26 @@
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.large {
+    width: 400px;
+    padding: 100px 0;
+    text-align: center;
+    border: 1px solid #000;
+    border-radius: 5px;
+}
+
+.elementas {
+    max-width: 400px;
+}
+
+.btn {
+    float: right;
+}
+
+.input-main,
+.error {
+    display: inline-block;
+    max-width: 60%;
+}
