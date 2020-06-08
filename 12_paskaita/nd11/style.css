@@ -1,0 +1,20 @@
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card {
+    padding: 30px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    margin-right: 20px;
+    width: 20%;
+    margin-bottom: 20px;
+}
