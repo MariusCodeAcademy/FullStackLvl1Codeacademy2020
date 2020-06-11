@@ -1,9 +1,9 @@
 console.log('hello');
 
 const todos = [
-    { name: 'do stuff', done: false, edit: false },
+    { name: 'do stuff', done: true, edit: false },
     { name: 'Learn Html', done: false, edit: false },
-    { name: 'Style with Css', done: false, edit: false },
+    { name: 'Style with Css', done: true, edit: false },
     { name: 'Act with JS', done: false, edit: false },
 ];
 
@@ -11,6 +11,10 @@ const todos = [
 const listElement = document.getElementById("list");
 const inputElement = document.getElementById("input");
 const addBtnElement = document.getElementById('add-todo-btn')
+
+const CHECK = 'fa-check-circle';
+const UNCHECK = 'fa-circle-thin';
+const LINE_THROUGH = 'line-through';
 
 
 // suformuoti li elementa ir
@@ -42,22 +46,29 @@ function render() {
 
 
 
+
+
+
     let toDoId = 0;
     // paimame name reikskmes is todos masyvo ir sukuriam li HTML text
     // ikeliam sukurta struktura i html
     todos.forEach(function(todo) {
+
+        // pasitikriname kokia yra done reiksme ir atitinkamai priskiriame klase
+        //                  if         true     false 
+        let classCheck = todo.done ? CHECK : UNCHECK;
+        let textChecked = todo.done ? LINE_THROUGH : '';
+
         listElement.innerHTML += `
                                 <li class="item" data-todo-id=${toDoId} >
-                                    <i class="fa fa-circle-thin complete" aria-hidden="true"></i>
-                                    <span class="text">${todo.name}</span>
+                                    <i class="fa ${classCheck} complete" aria-hidden="true"></i>
+                                    <span class="text ${textChecked}">${todo.name}</span>
                                     <i class="fa fa-pencil-square" aria-hidden="true"></i>
                                     <i class="fa fa-trash-o delete" aria-hidden="true"></i>
                                 </li>
                                 `;
         toDoId++;
     });
-
-
 }
 
 render();
