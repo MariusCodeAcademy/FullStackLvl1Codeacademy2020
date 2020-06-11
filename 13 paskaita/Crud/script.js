@@ -19,10 +19,10 @@ addBtnElement.addEventListener('click', function() {
     // paimti reiksme is ivesties lauko
     let inputVal = inputElement.value;
     console.log({ inputVal });
-    // suformuoti li is text 
-    let liEl = textToLi(inputVal);
-    // ikeliam i dom
-    addElToList(liEl)
+    // suurti nauja objekta is reiksmes 
+    todos.push({ name: inputVal, done: false, edit: false })
+    render();
+    inputElement.value = '';
 })
 
 
@@ -61,4 +61,4 @@ function render() {
     addElToList(output);
 }
 
-render()
+render();
