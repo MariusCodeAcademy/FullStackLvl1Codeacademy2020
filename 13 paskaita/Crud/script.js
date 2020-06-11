@@ -1,13 +1,11 @@
 console.log('hello');
 
-const todos = [
+let todos = [
     { name: 'do stuff', done: true, edit: true },
     { name: 'Learn Html', done: false, edit: false },
     { name: 'Style with Css', done: true, edit: false },
     { name: 'Act with JS', done: false, edit: false },
 ];
-
-
 
 
 // nusitaikom i elementus su kuriais dirbsime
@@ -46,9 +44,6 @@ function render() {
         listElement.innerHTML = `<p class="no-todo-text">There are no todos, Please add some</p>`;
         return;
     }
-
-
-
 
     let toDoId = 0;
     // paimame name reikskmes is todos masyvo ir sukuriam li HTML text
@@ -162,6 +157,14 @@ listElement.addEventListener('click', function(event) {
             // edit === true
             // jei jau turim input elemento stadija 
             // is input i span
+            // issisaugoti naujai ivesta texta
+            // gauname naujai ivesta texta
+            let editedTodoText = event.target.parentElement.querySelector('input').value;
+            // console.log(editedTodoText);
+            // pagal index irasome nauja todo name reiksme 
+            todos[todoIdValueFromAttr].name = editedTodoText;
+            // pakeiciame edit busena i false 
+            todos[todoIdValueFromAttr].edit = false;
 
         } else {
             // edit === false
@@ -174,8 +177,35 @@ listElement.addEventListener('click', function(event) {
         render();
     }
 
+})
+
+// date 
+
+function myDate() {
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
+    const today = new Date();
+
+    const localDate = today.toLocaleDateString('lt', options)
+
+    // nusitaikom i datos el
+    const dateEl = document.getElementById('date');
+
+    dateEl.innerText = localDate;
+
+}
+
+myDate();
 
 
 
+// reset handle
 
+const clearEl = document.querySelector('.clear');
+
+// pridedame ivykiu psiklausyma 
+
+clearEl.addEventListener('click', function() {
+    // istrinti visus todo 
+    todos = [];
+    render();
 })
