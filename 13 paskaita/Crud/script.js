@@ -7,6 +7,9 @@ const todos = [
     { name: 'Act with JS', done: false, edit: false },
 ];
 
+
+
+
 // nusitaikom i elementus su kuriais dirbsime
 const listElement = document.getElementById("list");
 const inputElement = document.getElementById("input");
@@ -61,7 +64,7 @@ function render() {
 
         listElement.innerHTML += `
                                 <li class="item" data-todo-id=${toDoId} >
-                                    <i class="fa ${classCheck} complete" aria-hidden="true"></i>
+                                    <i class="fa ${classCheck} check-box" aria-hidden="true"></i>
                                     <span class="text ${textChecked}">${todo.name}</span>
                                     <i class="fa fa-pencil-square" aria-hidden="true"></i>
                                     <i class="fa fa-trash-o delete" aria-hidden="true"></i>
@@ -117,7 +120,7 @@ listElement.addEventListener('click', function(event) {
     //console.log(event.target);
     //event.target.style.backgroundColor = 'black';
 
-    // elemento istrynimas 
+    // elemento istrynimas ==========================================================================
     // pasitikrinam ar paspaudem ant siusklines item
     if (event.target.classList.contains('fa-trash-o')) {
         // console.log(event.target);
@@ -125,6 +128,16 @@ listElement.addEventListener('click', function(event) {
         let todoIdValueFromAttr = event.target.parentElement.getAttribute('data-todo-id');
         // console.log(todoIdValueFromAttr);
         deleteTodo(todoIdValueFromAttr);
+    }
+
+    // elemento CHECK UNCHECK DONE ==========================================================================
+    // pasitikrinam ar paspaudem ant apskritimo
+    if (event.target.classList.contains('check-box')) {
+        // surandame id to li kuri paspaudem 
+        let todoIdValueFromAttr = event.target.parentElement.getAttribute('data-todo-id');
+        // atliiekame to li kurti paspaudem done reiksmes inversija 
+        todos[todoIdValueFromAttr].done = !todos[todoIdValueFromAttr].done;
+        render();
     }
 
 })
