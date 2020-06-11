@@ -1,7 +1,7 @@
 console.log('hello');
 
 const todos = [
-    { name: 'do stuff', done: true, edit: false },
+    { name: 'do stuff', done: true, edit: true },
     { name: 'Learn Html', done: false, edit: false },
     { name: 'Style with Css', done: true, edit: false },
     { name: 'Act with JS', done: false, edit: false },
@@ -50,8 +50,6 @@ function render() {
 
 
 
-
-
     let toDoId = 0;
     // paimame name reikskmes is todos masyvo ir sukuriam li HTML text
     // ikeliam sukurta struktura i html
@@ -62,10 +60,19 @@ function render() {
         let classCheck = todo.done ? CHECK : UNCHECK;
         let textChecked = todo.done ? LINE_THROUGH : '';
 
+        // pasitikriname ar dodo.edit yra true ar false ir pagal tai spausdiname span arba input
+        let todoOrInput;
+        if (todo.edit) {
+            todoOrInput = `<input type="text" class="text" value='${todo.name}'>`
+        } else {
+            todoOrInput = `<span class="text ${textChecked}">${todo.name}</span>`;
+        }
+
+
         listElement.innerHTML += `
                                 <li class="item" data-todo-id=${toDoId} >
                                     <i class="fa ${classCheck} check-box" aria-hidden="true"></i>
-                                    <span class="text ${textChecked}">${todo.name}</span>
+                                    ${todoOrInput}
                                     <i class="fa fa-pencil-square" aria-hidden="true"></i>
                                     <i class="fa fa-trash-o delete" aria-hidden="true"></i>
                                 </li>
@@ -139,5 +146,36 @@ listElement.addEventListener('click', function(event) {
         todos[todoIdValueFromAttr].done = !todos[todoIdValueFromAttr].done;
         render();
     }
+
+    // elemento Edit  ==========================================================================
+    // pasitikrinam ar paspaudem ant edit iconeles 
+    if (event.target.classList.contains('fa-pencil-square')) {
+
+
+        // surandame id to li kuri paspaudem 
+        let todoIdValueFromAttr = event.target.parentElement.getAttribute('data-todo-id');
+        // todos[todoIdValueFromAttr].edit = !todos[todoIdValueFromAttr].edit;
+
+
+        // pasiikrinti ar reiksme yra true 
+        if (todos[todoIdValueFromAttr].edit) {
+            // edit === true
+            // jei jau turim input elemento stadija 
+            // is input i span
+
+        } else {
+            // edit === false
+            // is span i input 
+            todos[todoIdValueFromAttr].edit = !todos[todoIdValueFromAttr].edit;
+            console.log('is span i input ');
+
+
+        }
+        render();
+    }
+
+
+
+
 
 })
