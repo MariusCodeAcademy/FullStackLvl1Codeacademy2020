@@ -1,4 +1,8 @@
 <?php 
+echo '<pre>';
+print_r($_POST);
+echo '</pre>';
+
 // sukuriame funkicja isvalyti ivesties laukui nuo pavojingu simboliu ir nereikalingu tarpu
 function test_input($data) {
     // nutrinam space tarpelius is abieju pusiu
@@ -53,6 +57,28 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $gender = test_input($_POST['gender']);
     }
 
+    // patikriname ar Svetaine 
+    if(empty($_POST['website'])) {
+        // neprivalomas laukas
+        
+    } else {
+        // laukas ivestas issisaugom duomenis
+        $website = test_input($_POST['website']);
+        if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$website)) {
+            $websiteErr = "Netinkamas svetaines formatas ";
+        }
+    }
+
+    if (empty($_POST['comment'])) {
+        
+    } else {
+        $comment = htmlspecialchars($comment);
+        echo "comentaras : $comment";
+    }
+
+
+
+
 }
 
 
@@ -72,13 +98,19 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     <h1>Form validation practice</h1>
 
     <form action="index.php" method="POST">
-        Name*: <input class="db <?php echo $nameErr ? 'error-bd' : ''; ?> " type="text" name="name">
+        Name*: <input class="db <?php echo $nameErr ? 'error-bd' : ''; ?> " type="text" name="name" value="<?php echo $name?>" >
         <!-- atvaizduojame klaida jei tokia yra  -->
         <p class="err"><?php echo $nameErr ?></p>
-        E-mail*: <input class="db <?php echo $emailErr ? 'error-bd' : ''; ?> " type="text" name="email">
+
+        E-mail*: <input class="db <?php echo $emailErr ? 'error-bd' : ''; ?> " type="text" name="email" value="<?php echo $email?>" >
+         <!-- atvaizduojame klaida jei tokia yra  -->
         <p class="err"><?php echo $emailErr ?></p>
-        Website: <input class="db" type="text" name="website">
-        Comment: <textarea class="db" name="comment" rows="5" cols="40"></textarea>
+
+        Website: <input class="db <?php echo $websiteErr ? 'error-bd' : ''; ?> " type="text" name="website" value='<?php echo $website?>'>
+         <!-- atvaizduojame klaida jei tokia yra  -->
+         <p class="err"><?php echo $websiteErr ?></p>
+
+        Comment: <textarea class="db" name="comment" rows="5" cols="40"> <?php echo $comment ?> </textarea>
 
         <!-- radio buttons -->
 
