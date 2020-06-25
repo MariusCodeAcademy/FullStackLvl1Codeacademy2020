@@ -1,6 +1,7 @@
 <?php 
     include('class/Vechicle.php');
     include('class/_Moto.php');
+    include('class/_Truck.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,6 +37,14 @@
         $motoc = new Moto(2, "petrol", 2000, 2);
 
         print_r($motoc);
+
+        $truck = new Truck(8, 2020, "20T");
+
+        print_r($truck);
+
+        // echo year made is truck
+        echo $truck->getYear();
+
      ?>
      </pre>
     

@@ -3,9 +3,9 @@
 class Vechicle
 {
     // nurodom savybes
-    private $wheelCount;
+    protected $wheelCount;
     private $fuelType;
-    private $yearMade;
+    protected $yearMade;
 
     // constuktoriu uzpildyti duomenims sukuriant 
     public function __construct($wheels, $fuel, $year)
