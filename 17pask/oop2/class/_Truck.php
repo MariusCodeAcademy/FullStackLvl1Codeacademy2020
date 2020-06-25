@@ -17,5 +17,7 @@ class Truck extends Vechicle
         return $this->yearMade;
     }
 
+    
+
 
 }

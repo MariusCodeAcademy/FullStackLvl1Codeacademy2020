@@ -17,11 +17,11 @@
         su savybem wheelCount; fuelType; 
 
         sukurti vaikine klase kuri praplecia vechicle
-        Motocycle 
+        Motocycle
         su papildoma savybe passengerNumber
 
         sukurri dar viena klase kuri praplecia vechicle 
-        Truck 
+        Truck
         papildoma savybe loadWeight
 
         sukurti po viena kiekvienos klases objekta. 
@@ -44,6 +44,8 @@
 
         // echo year made is truck
         echo $truck->getYear();
+
+        // $input -> checkValid("reiksme ")
 
      ?>
      </pre>
