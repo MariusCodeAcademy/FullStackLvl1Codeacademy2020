@@ -1,6 +1,12 @@
 <?php 
-include('fruitClass.php');
-include('customerClass.php');
+include('class/fruitClass.php');
+include('class/customerClass.php');
+include('class/personClass.php');
+include('class/_studentClass.php');
+
+session_start();
+$_SESSION['admin'] = true;
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,9 +54,42 @@ include('customerClass.php');
     // Customer klase su konstruktorium 
 
     // sukuriam nauja objekta ir uzpildome konstruktoriaus pagalba
-    $customer1 = new Customer("John", "Doe", '123456');
+    // $customer1 = new Customer("John", "Doe", '123456');
 
-    print_r($customer1);
+    // print_r($customer1);
+
+    // Enkapsuliacija 
+
+    $person1 = new Person('Jonas', 'Bambuzas', 'Pardavejas', '1234');
+
+    // bandymas gauti reiksmes tiesiogiai
+    echo $person1->name;
+    // echo $person1->surname;
+    // echo $person1->ocupation;
+    // echo $person1->pinCode;
+
+    print_r($person1);
+
+    // pakeiciam pin su metodu
+    $person1->setNewPin('9874');
+
+    print_r($person1);
+
+
+    // Paveldimumas Inheritance 
+    // Student clase praplecia Person clase
+
+    $stud1 = new Student('Serbentas', 'Bordiuras', "KTU", 2);
+
+    print_r($stud1);
+
+    $this->setSurname('Morkauskas');
+
+    print_r($stud1);
+
+
+
+
 
 
 
