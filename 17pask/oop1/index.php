@@ -60,20 +60,20 @@ $_SESSION['admin'] = true;
 
     // Enkapsuliacija 
 
-    $person1 = new Person('Jonas', 'Bambuzas', 'Pardavejas', '1234');
+    // $person1 = new Person('Jonas', 'Bambuzas', 'Pardavejas', '1234');
 
-    // bandymas gauti reiksmes tiesiogiai
-    echo $person1->name;
-    // echo $person1->surname;
-    // echo $person1->ocupation;
-    // echo $person1->pinCode;
+    // // bandymas gauti reiksmes tiesiogiai
+    // echo $person1->name;
+    // // echo $person1->surname;
+    // // echo $person1->ocupation;
+    // // echo $person1->pinCode;
 
-    print_r($person1);
+    // print_r($person1);
 
-    // pakeiciam pin su metodu
-    $person1->setNewPin('9874');
+    // // pakeiciam pin su metodu
+    // $person1->setNewPin('9874');
 
-    print_r($person1);
+    // print_r($person1);
 
 
     // Paveldimumas Inheritance 
@@ -83,7 +83,7 @@ $_SESSION['admin'] = true;
 
     print_r($stud1);
 
-    $this->setSurname('Morkauskas');
+    $stud1->setSurnameStud('Morkauskas');
 
     print_r($stud1);
 

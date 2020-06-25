@@ -13,9 +13,9 @@ class Student extends Person
         $this->studentYear = $year;
     }
 
-    public function setSurname($newSurname){
+    public function setSurnameStud($newSurname){
         // pakeiciame paveldeta protected savybe
-        $this -> setSurname($newSurname);
+        $this->setSurname($newSurname);
     }
 
 }

@@ -15,21 +15,20 @@ class Person
         $this->pinCode = $pinCode;
     }
 
-    // norim pakeisti pin koda
-    public function setNewPin($code){
-        // realizuojamos apsaugos
-        if ($_SESSION['admin'] === true) {
-            $this->pinCode = $code;
-            echo "pin was changed";
-        } else {
-            echo 'errror, you are not authorized to do this.';
-        }
+    // // norim pakeisti pin koda
+    // public function setNewPin($code){
+    //     // realizuojamos apsaugos
+    //     if ($_SESSION['admin'] === true) {
+    //         $this->pinCode = $code;
+    //         echo "pin was changed";
+    //     } else {
+    //         echo 'errror, you are not authorized to do this.';
+    //     }
         
-    }
+    // }
 
     // set surname metodas
-    static function setSurname($newSurname)
-    {
+    protected function setSurname($newSurname){
         $this->surname = $newSurname;
     } 
 }
