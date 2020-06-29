@@ -9,12 +9,18 @@ class Job
     private $done;
 
     // construktoriaus funkcija
-    public function __construct($title, $amount)
+    public function __construct($id, $title, $amount)
     {
         $this->title = $title;
         $this->amount = $amount;
         $this->done = false;
+        $this->id = $id;
     }
+
+    // private function increaseId()
+    // {
+    //     $this->id = $this->id + 1;
+    // }
 
     // funkcia grazinanti ID (getter)
     public function getId() 

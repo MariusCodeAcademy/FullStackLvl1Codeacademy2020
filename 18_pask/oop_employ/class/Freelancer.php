@@ -31,6 +31,7 @@ class Freelancer extends Employee
             if($job->getId() == $jobId) {
                 // tai mes pabaigiame darba
                 $job->finishJob();
+                echo "<p>Job with id: $jobId was done</p>";
             }
         }
     }
@@ -50,7 +51,6 @@ class Freelancer extends Employee
                 array_slice($this->jobs, $index, 1);
             }
         }
-
         return $sum;
     }
 
