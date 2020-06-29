@@ -28,7 +28,7 @@ class Freelancer extends Employee
         foreach($this->jobs as $job)
         {
             // jei paduoto darbo id sutampa su vienu is turimu darbu
-            if($job->getId() == $jobId) {
+            if($job->getId() === $jobId) {
                 // tai mes pabaigiame darba
                 $job->finishJob();
                 echo "<p>Job with id: $jobId was done</p>";
