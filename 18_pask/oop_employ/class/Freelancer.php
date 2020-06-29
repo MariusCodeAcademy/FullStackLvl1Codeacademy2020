@@ -48,13 +48,10 @@ class Freelancer extends Employee
                 // pridedame darbo uzmokesti prie bendros sumos
                 $sum += $job->getAmount();
                 // istrinti pabaigta darba 
-                array_slice($this->jobs, $index, 1);
+                array_splice($this->jobs, $index, 1);
             }
         }
         return $sum;
     }
-
-
-
 
 }

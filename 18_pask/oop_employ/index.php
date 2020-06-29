@@ -1,6 +1,7 @@
 <?php 
 include('class/Employee.php');
 include('class/Freelancer.php');
+include('class/Worker.php');
 include('class/Job.php');
 ?>
 <!DOCTYPE html>
@@ -35,14 +36,37 @@ include('class/Job.php');
 
     echo '<hr>';
     // pasitikrinti ka gavom
-    print_r($free1);
+    //print_r($free1);
 
     // uzbaigti viena darba
     $free1->finishJob(1);
 
+    //echo '<hr>';
+    // pasitikrinti ka gavom
+   // print_r($free1);
+
+    //echo '<hr>';
+    //echo '<hr>';
+    // patikrinti ar skaiciuoja ir grazina atlyginima
+    //echo $free1->withDrawSalary();
+
+     // pasitikrinti ka gavom
+     //print_r($free1);
+
+
+    //  Worker classs ====================================
+// sukurti darbuotoja
+    $worker1 = new Worker("Jonas", 'Jonaitis', 10);
+
+    // darbuotojas pradirba 100 val
+    $worker1->work(160);
+
     echo '<hr>';
     // pasitikrinti ka gavom
-    print_r($free1);
+    print_r($worker1);
+
+    // patikrinti ar veikia atlyginimo skaiciavimas
+    echo '<h2>' . $worker1->withDrawSalary() . '</h2>';
 
 
 
