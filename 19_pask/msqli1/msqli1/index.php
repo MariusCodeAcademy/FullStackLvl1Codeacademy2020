@@ -1,9 +1,33 @@
 <?php 
 include('connectdb.php');
 
+// GET masyvas is URL
+if (isset($_GET['orderBy']) && !empty($_GET['orderBy'])) {
+    $orderBy = htmlspecialchars($_GET['orderBy']) ;
+
+    // print_r($_GET);
+}
+
+
+
+
+
 // SQL uzklausa
 // gaunam lenteles duomenis
-$sqlString = 'SELECT * FROM cars';
+// $sqlString = 'SELECT * FROM cars';
+
+// norim isrikiuoti pagal metus 
+$sqlString = 'SELECT * FROM cars ORDER BY model DESC';
+
+
+// isrikiuojam pagal $_get masyvo reiksme jei tokia yra
+if(isset($orderBy)){
+    $sqlString = "SELECT * FROM cars ORDER BY $orderBy DESC";
+}
+// $sqlString = 'SELECT * FROM cars ORDER BY model DESC';
+
+
+
 
 // istraukti duomenis kur metai yra 1999
 // $sqlString = 'SELECT * FROM cars WHERE `year` < 2000';
@@ -36,15 +60,15 @@ $data = $mysqlObject->fetch_all(MYSQLI_ASSOC);
 
 
 //  pakeisti metus BMW kurio id 4 ================================
-$sqlString = "
-    UPDATE `cars` 
-    SET `year` = 2010
-    WHERE `id` = 4
-    LIMIT 1
-";
+// $sqlString = "
+//     UPDATE `cars` 
+//     SET `year` = 2010
+//     WHERE `id` = 4
+//     LIMIT 1
+// ";
 
 // atliekam uzklausa
-$queryObj = mysqli_query($conn, $sqlString);
+// $queryObj = mysqli_query($conn, $sqlString);
 
 
 
@@ -69,14 +93,15 @@ echo '</pre>';
 <body>
 
     <h1>Msqli Pradzia</h1>
+    <a href="mysqloop.php">OOP</a>
 
     <table>
         <thead>
             <tr>
-                <th>ID</th>
+                <th><a href="?orderBy=id"> ID </a></th>
                 <th>Brand</th>
                 <th>Model</th>
-                <th>Engine</th>
+                <th> <a href="?orderBy=engineVolume">Engine</a> </th>
                 <th>Year</th>
             </tr>
         </thead>
