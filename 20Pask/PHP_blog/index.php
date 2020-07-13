@@ -1,3 +1,16 @@
+<?php 
+include_once './class/DbClass.php';
+
+// sukuriam klases objekta
+$db = new Db();
+
+// vygdom klases metoda prisijungti prie db
+$db->connectToDb();
+
+
+?>
+
+
 <!doctype html>
 <html lang="en">
 
@@ -42,8 +55,7 @@
                     <h5 class="card-title">Card title</h5>
                     <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>
+                    <a href="#" class="card-link">View more</a>
                 </div>
             </div>
 
@@ -52,8 +64,7 @@
                     <h5 class="card-title">Card title</h5>
                     <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>
+                    <a href="#" class="card-link">View More</a>
                 </div>
             </div>
 

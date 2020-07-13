@@ -1,0 +1,11 @@
+1 prisijungti prie DB
+
+2 sukurti lentele DB postu saugojimui
+
+3 sukurti metoda issaugoti irasau i lentele
+
+4 sukurti puslapi su forma ir padaryti kad teisingai uzpildzius duomenys butu irasomi i DB
+
+5 Sukurti puslapi atvaizduoti vienam Postui
+
+6 Sukurti 
