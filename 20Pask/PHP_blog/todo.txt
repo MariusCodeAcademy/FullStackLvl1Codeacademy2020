@@ -1,4 +1,4 @@
-1 prisijungti prie DB
+1 prisijungti prie DB 
 
 2 sukurti lentele DB postu saugojimui
 

@@ -7,7 +7,12 @@ $db = new Db();
 // vygdom klases metoda prisijungti prie db
 $db->connectToDb();
 
+// metodas kuris sukuria lentele 
+// $db->createPostsTable();
 
+
+// sukurti nauja posta
+// $db->addPost('The best post', 'lorem ipsum daug texto', 'John');
 ?>
 
 
@@ -91,3 +96,5 @@ $db->connectToDb();
 </body>
 
 </html>
+
+<?php $db->closeDb() ?>
