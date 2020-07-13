@@ -26,9 +26,23 @@ class Db
         }
     }
 
+    // sukuriam metoda uzklausos vygdymui su atgaliniu rysiu
+    public function makeQuery($query, $msg)
+    {
+        // uzklausos vykdymas
+        if($this->conn->query($query) === TRUE) {
+            // uzklausa ivykdyta sekmingai
+            echo "$msg <br>";
+        } else {
+            // ivyko klada
+            echo 'ivyko klaida: ' . $this->conn->error;
+        }
+    }
+
     // sukuriam metoda sukurti naujai lenteliai posts
     public function createPostsTable()
     {
+        // apsirasyti query arba sql texta
         $query = "
         CREATE TABLE Posts (
             id INT(2) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -39,20 +53,21 @@ class Db
         )";
 
         // uzklausos vykdymas
-        if($this->conn->query($query) === TRUE) {
-            // uzklausa ivykdyta sekmingai
-            echo 'lentele sukurta sekmingai <br>';
-        } else {
-            // ivyko klada
-
-            echo 'ivyko klaida: ' . $this->conn->error;
-        }
+        $this->makeQuery($query, 'Lentele sukurta sekmingai');
 
     }
 
     // funkcija irasyti duomenims i lentele
-    public function addPost($title, $body, $author) {
-        
+    public function addPost($title, $body, $author) 
+    {
+        // apsirasyti query arba sql texta
+        $query = "
+            INSERT INTO posts (`title`, `body`, `author`)
+            VALUES ('$title', '$body', '$author');
+        ";
+
+        // issiusti ta query vygdymui 
+        $this->makeQuery($query, 'Irasas sukurtas sekmingai');
     }
 
 

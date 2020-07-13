@@ -10,9 +10,9 @@ $db->connectToDb();
 // metodas kuris sukuria lentele 
 // $db->createPostsTable();
 
-
 // sukurti nauja posta
 // $db->addPost('The best post', 'lorem ipsum daug texto', 'John');
+
 ?>
 
 
