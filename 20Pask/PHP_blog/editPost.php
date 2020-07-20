@@ -1,4 +1,4 @@
-<?php 
+ <?php 
 include_once './class/DbClass.php';
 
 // sukuriam klases objekta
@@ -18,7 +18,7 @@ $titleErr = $authorErr = $bodyErr = '';
 // ar buvo paspaustas mygtukas siusti
 if(isset($_POST['submit'])) {
     // forma buvo issiusta
-    // echo 'form sent<br>';
+    echo 'form sent<br>';
 
     if(!empty($_POST['title'])){
         // siek tiek pravalom irasa ir padarom saugu naudoti SQL usklausose
@@ -41,13 +41,10 @@ if(isset($_POST['submit'])) {
     }
 
     // pasitikrinam ar visi laukai uzplildyti
-    if(empty($titleErr) && empty($authorErr) && empty($bodyErr)) {
+    if(!empty($titleErr) && !empty($authorErr) && !empty($bodyErr)) {
         // klaidu nera
         // vygdom uzklausa
         $db->addPost($title, $body, $author);
-
-        // redirectinam i homepage
-        header('Location: index.php');
     }
     
 

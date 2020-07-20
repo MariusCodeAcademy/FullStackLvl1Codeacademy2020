@@ -70,6 +70,23 @@ class Db
         $this->makeQuery($query, 'Irasas sukurtas sekmingai');
     }
 
+    // Gauti duomenis is duomenu bazes
+    public function getPosts()
+    {
+        // apsirasyti query arba sql texta
+        $sql = "SELECT * FROM posts ORDER BY `created_at` DESC";
+
+        // vygdom query
+        $resultMysqlObj = $this->conn->query($sql);
+        // tikrisnam ar gavom nors viena eilute
+        if ($resultMysqlObj->num_rows > 0 ){
+            // turim gave duomenu pagal sql
+            return $resultMysqlObj->fetch_all(MYSQLI_ASSOC);
+        } else {
+            echo '0 rows <br>';
+        }
+    }
+
 
 
 

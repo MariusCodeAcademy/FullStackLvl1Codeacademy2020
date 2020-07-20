@@ -23,24 +23,30 @@ include('./inc/navigation.php')
     <h1 class="display-3 my-5">My PHP blog Website</h1>
     <!-- card-container -->
     <div class="card-container d-flex flex-wrap ">
+    
+    
+    <?php 
+    // gaunu postus
+    $postsArray = $db->getPosts();
 
+    //  print_r($postsArray);
+    
+
+    // suksim cikla per gautus duomenis ir atvaizduosim korteles
+    foreach($postsArray as $post) :   ?>
+    
         <div class="card m-2" style="width: 18rem;">
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="card-link">View more</a>
+                <h5 class="card-title"><?php echo $post['title'] ?></h5>
+                <h6 class="card-subtitle mb-2 text-muted"><?php echo $post['author'] ?></h6>
+                <p class="card-text"><?php echo $post['body'] ?></p>
+            </div>
+            <div class="card-footer">
+                <a class="d-block" href="post.php?id=<?php echo $post['id'] ?>" class="card-link">View more</a>
+                <p class="text-muted"><?php echo $post['created_at'] ?></p>
             </div>
         </div>
-
-        <div class="card m-2" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="card-link">View More</a>
-            </div>
-        </div>
+    <?php endforeach; ?>
 
     </div><!-- /card-container -->
     
