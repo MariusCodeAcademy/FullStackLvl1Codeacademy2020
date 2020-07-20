@@ -11,6 +11,16 @@ include('./inc/head.php');
 include('./inc/navigation.php');
 
 
+// get kintamojo gavimas 
+// isvalom get kintamojo reiksme kad butu saugi naudoti sql uzklausoje
+if (!empty($_GET['id'])) {
+    $postID = mysqli_real_escape_string($conn, $_GET['id']);
+} else {
+    // get id nenustatytas
+    die('postas nerastas');
+}
+
+
 // formos apdorojimas
 $title = $author = $body = '';
 $titleErr = $authorErr = $bodyErr = '';
@@ -18,7 +28,7 @@ $titleErr = $authorErr = $bodyErr = '';
 // ar buvo paspaustas mygtukas siusti
 if(isset($_POST['submit'])) {
     // forma buvo issiusta
-    echo 'form sent<br>';
+    // echo 'form sent<br>';
 
     if(!empty($_POST['title'])){
         // siek tiek pravalom irasa ir padarom saugu naudoti SQL usklausose
@@ -41,23 +51,23 @@ if(isset($_POST['submit'])) {
     }
 
     // pasitikrinam ar visi laukai uzplildyti
-    if(!empty($titleErr) && !empty($authorErr) && !empty($bodyErr)) {
+    if(empty($titleErr) && empty($authorErr) && empty($bodyErr)) {
         // klaidu nera
+        // echo 'testing123<br>';
         // vygdom uzklausa
-        $db->editPost($title, $body, $author);
+        $db->editPost($title, $body, $author, $postID);
+
+        // atnaujinimas sekmingas einam i homepage
+        header("Location: index.php");
+    } else {
+        echo 'klaida error laukai ne tusti';
     }
     
 
 } // submmmit pabaiga
 
 
-// isvalom get kintamojo reiksme kad butu saugi naudoti sql uzklausoje
-if (!empty($_GET['id'])) {
-    $postID = mysqli_real_escape_string($conn, $_GET['id']);
-} else {
-    // get id nenustatytas
-    die('postas nerastas');
-}
+
 // issitrauksim posta pagal id
 $post = $db->getPost($postID);
 
@@ -67,7 +77,8 @@ $post = $db->getPost($postID);
 
 
 <section class="container">
-    <h1 class="display-4 my-3">Edit Post #12</h1>
+    <?php echo $db->status ?>
+    <h1 class="display-4 my-3">Edit Post #<?php echo $post['id'] ?></h1>
     
     <!-- Forma ikelti postui -->
     <form class="w-50" action="editPost.php?id=<?php echo $postID ?>" method="POST">

@@ -33,7 +33,7 @@ class Db
         // uzklausos vykdymas
         if($this->conn->query($query) === TRUE) {
             // uzklausa ivykdyta sekmingai
-            echo "$msg <br>";
+            $this->status = "<div class='alert alert-success' role='alert'>$msg</div> ";
         } else {
             // ivyko klada
             echo 'ivyko klaida: ' . $this->conn->error;
@@ -107,10 +107,16 @@ class Db
     public function editPost($title, $body, $author, $id)
     {
         // apsirasyti sql
-        $sql = "";
+        $sql = "
+        UPDATE posts
+        SET `title`='$title', `body`='$body', `author`='$author'
+        WHERE `id`='$id'
+        LIMIT 1
+        ";
 
         // vygdyti 
-        
+        $this->makeQuery($sql, 'Irasas atnaujintas sekmingai' );
+
     }
 
 
