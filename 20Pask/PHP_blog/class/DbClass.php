@@ -7,7 +7,8 @@ class Db
     private $password = '';
     private $database = 'php_blog';
     // esamam prisijungimui naudosim kintamaji conn
-    private $conn; 
+    private $conn;
+    public $status;
 
     // metodas prisijungimui prie duomenu bazes
     public function connectToDb()
@@ -20,7 +21,7 @@ class Db
             die('Connection failed: ' . $conn->connect_error . '<br>');
         } else {
             // prisijungimas sekmingas, klaidu nera
-            echo "Prisijungimas sekmingas<br>";
+            $this->status =  "<div class='alert alert-success' role='alert'>Prisijungimas sekmingas</div>";
             // issaugom prisijungima i privatu kinatmaji 
             return $this->conn = $conn;
         }
@@ -85,6 +86,31 @@ class Db
         } else {
             echo '0 rows <br>';
         }
+    }
+
+    // metodas gauti irasui pagal id
+    public function getPost($id)
+    {
+        // apsirasom query
+        $sql = "SELECT * FROM posts WHERE `id`='$id'";
+        // vygdom query
+        $resultMysqlObj = $this->conn->query($sql);
+        if ($resultMysqlObj->num_rows > 0 ){
+            // gavom irasa paga id;
+            return $resultMysqlObj->fetch_assoc();
+        } else {
+            echo "irasas nerastas<br>"; 
+        }
+    }
+
+    // metodas updatinti irasa duomenu bazeje
+    public function editPost($title, $body, $author, $id)
+    {
+        // apsirasyti sql
+        $sql = "";
+
+        // vygdyti 
+        
     }
 
 
