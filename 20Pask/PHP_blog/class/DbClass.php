@@ -119,6 +119,17 @@ class Db
 
     }
 
+    // istrynimo metodas 
+    public function deletePost($id)
+    {
+        $sql = "DELETE FROM posts 
+                WHERE `id`='$id'
+                LIMIT 1
+        ";
+
+        $this->makeQuery($sql, 'postas istrintas');
+    }
+
 
 
 

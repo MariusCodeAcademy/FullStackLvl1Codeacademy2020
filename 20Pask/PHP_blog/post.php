@@ -14,7 +14,7 @@ $connection = $db->connectToDb();
 // $db->addPost('The best post', 'lorem ipsum daug texto', 'John');
 
 include('./inc/head.php');
-include('./inc/navigation.php')
+include('./inc/navigation.php');
 
 ?>
 
@@ -31,6 +31,20 @@ if (!empty($_GET['id'])) {
     // get id nenustatytas
     die('postas nerastas');
 }
+
+if(isset($_POST['delete'])) {
+    // reiskia buvo paspaustas delete
+    $db->deletePost($postID);
+    // redirecktinam i homepage
+    header('Location: index.php');
+    return;
+} else {
+    echo 'delete not found';
+}
+
+
+
+
 // issitrauksim posta pagal id
 $post = $db->getPost($postID);
 
@@ -44,6 +58,11 @@ $post = $db->getPost($postID);
         <h6 class="card-subtitle mb-2 text-muted">Autorius: <?php echo $post['author'] ?></h6>
         <p class="card-text lead"><?php echo $post['body'] ?></p>
         <a class="card-link btn btn-outline-info" href="editPost.php?id=<?php echo $post['id']; ?>">Edit Post</a>
+        <!-- istrynimo forma  -->
+        <form class="float-right" action="post.php?id=<?php echo $postID ?>" method="POST">
+            <input class="btn btn-outline-danger" type="submit" name="delete" value="Istrinti" >
+        </form>
+
     </div>
     <div class="card-footer text-muted">Created at <?php echo $post['created_at'] ?></div>
 </div>

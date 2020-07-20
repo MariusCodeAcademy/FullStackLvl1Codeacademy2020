@@ -1,5 +1,6 @@
  <?php 
 include_once './class/DbClass.php';
+include_once './class/ValidateClass.php';
 
 // sukuriam klases objekta
 $db = new Db();
@@ -86,14 +87,14 @@ $post = $db->getPost($postID);
         <div class="form-group">
             <label for="">Title</label>
             <input type="text" class="form-control" name='title' value="<?= $post['title'] ?>">
-            <!-- <span class="alert alert-danger "><?php echo $titleErr ?></span> -->
+            <?php Validate::showError($titleErr); ?>
         </div>
 
         <!-- author -->
         <div class="form-group">
             <label for="">Autorius</label>
             <input type="text" class="form-control" name='author' value='<?php echo $post['author'] ?>'>
-
+            <?php Validate::showError($authorErr); ?>
         </div>
 
         <!-- post body -->
@@ -102,7 +103,7 @@ $post = $db->getPost($postID);
             <textarea class="form-control" name="body" cols="30" rows="10">
                 <?php echo $post['body'] ?>
             </textarea>
-
+            <?php Validate::showError($bodyErr); ?>
         </div>
 
         <!-- siuntimo mygtuas -->
