@@ -1,0 +1,27 @@
+* {
+    box-sizing: border-box;
+}
+
+.gallery {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.gallery__item {
+    width: 30%;
+    margin: 20px;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+.img-object-fit {
+    width: 30%;
+    height: 400px;
+    margin: 10px;
+    object-fit: cover;
+    object-position: center;
+}
